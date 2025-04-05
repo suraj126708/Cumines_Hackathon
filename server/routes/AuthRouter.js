@@ -8,14 +8,9 @@ const ensureAuthenticated = require("../middlewares/Auth");
 
 const router = require("express").Router();
 
-router.post(
-  "/signup",
-  upload.single("profilePicture"),
-  signUpValidation,
-  signUp
-);
+router.post("/signup", signUp);
 
-router.post("/login", loginValidation, login);
+router.post("/login", login);
 
 router.get("/verify", ensureAuthenticated, (req, res) => {
   res.send({ message: "You have access!", user: req.user });

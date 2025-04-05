@@ -5,15 +5,6 @@ const signUpValidation = (req, res, next) => {
     name: joi.string().min(3).max(100).required(),
     email: joi.string().email().required(),
     password: joi.string().min(6).required(),
-    contact: joi
-      .string()
-      .pattern(/^[0-9]+$/)
-      .min(10)
-      .max(15)
-      .required(),
-    address: joi.string().min(5).required(),
-    age: joi.number().integer().min(18).required(),
-    gender: joi.string().valid("male", "female", "other").required(),
   });
   const { error } = schema.validate(req.body);
   if (error) {

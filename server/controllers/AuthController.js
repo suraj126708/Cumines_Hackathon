@@ -1,12 +1,11 @@
 const userModel = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const path = require("path");
 
 // Sign Up Controller
 const signUp = async (req, res) => {
   try {
-    const { name, email, password, contact, address, age, gender } = req.body;
+    const { name, email, password } = req.body;
 
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
@@ -15,21 +14,10 @@ const signUp = async (req, res) => {
         .json({ message: "User already exists, you can log in." });
     }
 
-    if (!req.file) {
-      return res.status(400).json({ message: "Profile picture is required" });
-    }
-
-    const profilePicture = req.file.path;
-
     const newUser = new userModel({
       name,
       email,
       password: await bcrypt.hash(password, 10),
-      contact,
-      address,
-      age,
-      gender,
-      profilePicture,
     });
 
     await newUser.save();
@@ -46,8 +34,6 @@ const signUp = async (req, res) => {
     });
   }
 };
-
-module.exports = { signUp };
 
 const login = async (req, res) => {
   try {
@@ -77,7 +63,6 @@ const login = async (req, res) => {
       user: {
         email: user.email,
         name: user.name,
-        profilePicture: user.profilePicture,
       },
     });
   } catch (err) {
