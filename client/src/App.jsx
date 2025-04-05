@@ -12,6 +12,7 @@ import { AuthProvider } from "./Authorisation/AuthProvider";
 import NavBar from "./components/Navbar";
 import PricingPage from "./Pages/PricingPage";
 import BlogTemplate from "./Pages/BlogPage";
+import Destination from "./Pages/DestinationPage";
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
         <BrowserRouter>
           <NavBar id="black" />
           <Routes>
+            <Route path="/blog" element={<Destination />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/blog" element={<BlogTemplate />} />
+            <Route path="/destination" element={<Destination />} />
 
             <Route path="/pricing" element={<PricingPage />} />
             <Route

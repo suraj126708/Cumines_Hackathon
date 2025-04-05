@@ -101,11 +101,21 @@ function LoginPage() {
           </div>
         </form>
         <div className="mt-6 text-center">
-          <p className="text-black-500">
+          <p className="text-black">
             Dont have an account?{" "}
             <Link to="/register" className="text-blue-700">
               Sign Up
             </Link>
+          </p>
+        </div>
+        {/* Demo user credentials block aligned to left */}
+        <div className="mt-4 text-left text-sm text-gray-600 border border-gray-300 rounded p-3 bg-gray-100">
+          <p className="font-semibold">Demo User Login:</p>
+          <p>
+            <span className="font-mono">ID: 1234</span>
+          </p>
+          <p>
+            <span className="font-mono">Password: 1234</span>
           </p>
         </div>
       </div>

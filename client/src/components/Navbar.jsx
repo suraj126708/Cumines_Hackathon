@@ -1,88 +1,67 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import Bgimg from "../assets/Images/Logo.png";
-import { useState } from "react";
-import NavbarAnchor from "./NavbarAnchor";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const NavBar = ({ id }) => {
-  // const navigate = useNavigate();
+  const [searchActive, setSearchActive] = useState(false);
+  const inputRef = useRef(null);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const activateSearch = () => {
+    setSearchActive(true);
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }, 100);
+  };
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const deactivateSearch = () => {
+    setSearchActive(false);
   };
 
   return (
-    <nav
-      className={`absolute top-0 w-[100%] ${
-        id === "black" ? "text-black" : "text-white"
-      }`}
-    >
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-        <a href="/" className="space-x-3">
-          <img src={Bgimg} className="h-28 z-40" alt="Fit4You Logo" id="logo" />
+    <nav className="travel-navbar">
+      <div className="navbar-left">
+        <a href="/" className="navbar-logo">
+          Wanderlust
         </a>
-        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          {
-            <button
-              type="button"
-              className="flex text-sm rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
-              id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
-            >
-              <span className="sr-only">Open user menu</span>
-              <a
-                href="/login"
-                className="bg-none font-semibold text-xl underline"
-              >
-                Login
-              </a>
-            </button>
-          }
-          <button
-            data-collapse-toggle="navbar-user"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-user"
-            aria-expanded={isOpen}
-            onClick={toggleMenu}
-          >
-            <span className="sr-only">Open main menu</span>
+      </div>
+
+      <div className="navbar-right">
+        {searchActive ? (
+          <input
+            type="text"
+            placeholder="Search..."
+            className="navbar-search"
+            ref={inputRef}
+            onBlur={deactivateSearch}
+          />
+        ) : (
+          <span className="search-icon" onClick={activateSearch}>
             <svg
-              className="w-5 h-5"
-              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
               fill="none"
-              viewBox="0 0 17 14"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-          </button>
-        </div>
-        <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } items-center justify-between w-full md:flex md:w-auto md:order-1 lg:bg-transparent z-50`}
-          id="navbar-user"
-        >
-          <ul
-            id="navText"
-            className="flex flex-col font-medium p-4 md:p-0 mt-0 md:space-x-8 z-40 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 z-40"
-          >
-            <NavbarAnchor to={"/"} text={"Home"} id={"home"} className={id} />
-            <NavbarAnchor to={"/about"} text={"About"} className={id} />
-            <NavbarAnchor to={"/upload"} text={"Upload sheet"} className={id} />
-            <NavbarAnchor to={"/contact"} text={"Contact"} className={id} />
-          </ul>
-        </div>
+          </span>
+        )}
+        <a href="/login" className="navbar-link">
+          Login
+        </a>
+        <a href="/signup" className="navbar-button">
+          Sign Up
+        </a>
       </div>
     </nav>
   );

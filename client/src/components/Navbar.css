@@ -1,0 +1,93 @@
+.travel-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar-left .navbar-logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SVG Icon styling */
+.search-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: #34495e;
+  transition: color 0.3s;
+}
+
+.search-icon:hover {
+  color: #1abc9c;
+}
+
+/* Search Input styling */
+.navbar-search {
+  width: 140px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.navbar-search:focus {
+  border-color: #1abc9c;
+  outline: none;
+}
+
+.navbar-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #34495e;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+.navbar-link:hover {
+  color: #1abc9c;
+}
+
+.navbar-button {
+  padding: 8px 16px;
+  background-color: #1abc9c;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.navbar-button:hover {
+  background-color: #16a085;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .travel-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+}

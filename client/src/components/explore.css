@@ -1,0 +1,105 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  /* background: transparent; */
+  background-color: transparent !important;
+  backdrop-filter: blur(10px);
+}
+
+.card {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card-logo {
+  font-size: 2rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ This centers the button horizontally */
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: black;
+  margin-top: 8px;
+}
+
+.explore-btn {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive fallback: 2 on tablet, 1 on mobile */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-img {
+    height: 160px;
+  }
+}

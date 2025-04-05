@@ -8,33 +8,49 @@ function PricingPage() {
       </div>
       <div className="max-w-5xl mx-auto mt-16 px-6 text-left text-gray-800 space-y-6 mb-4">
         <h2 className="text-3xl font-bold text-center text-green-600 mb-4">
-          Why Choose Our Plans?
+          Frequently Asked Questions
         </h2>
 
-        <p className="text-lg">
-          Our pricing plans are thoughtfully designed to suit every type of
-          traveler — from spontaneous backpackers to luxury vacationers. We
-          believe that memorable experiences shouldnt come with a heavy price
-          tag.
-        </p>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-semibold">
+              What is included in the pricing plans?
+            </h3>
+            <p className="text-lg">
+              Our pricing plans include access to handpicked destinations,
+              verified accommodations, and 24/7 support. You can also customize
+              your experience with premium add-ons.
+            </p>
+          </div>
 
-        <p className="text-lg">
-          With flexible durations, exclusive benefits, and clear pricing, you
-          can focus on the journey instead of the logistics. No hidden charges,
-          no confusing terms — just pure travel joy.
-        </p>
+          <div>
+            <h3 className="text-xl font-semibold">
+              Are there any hidden charges?
+            </h3>
+            <p className="text-lg">
+              No, we believe in transparent pricing. There are no hidden charges
+              or confusing terms.
+            </p>
+          </div>
 
-        <p className="text-lg">
-          Each subscription comes with handpicked destinations, verified
-          accommodations, and around-the-clock support. You can also customize
-          your experience with premium add-ons and tailored itineraries.
-        </p>
+          <div>
+            <h3 className="text-xl font-semibold">Can I customize my plan?</h3>
+            <p className="text-lg">
+              Yes, you can customize your plan with tailored itineraries and
+              premium add-ons to suit your preferences.
+            </p>
+          </div>
 
-        <p className="text-lg">
-          So, whether youre planning a solo escape, a romantic trip, or a family
-          adventure, we’ve got a plan that fits your dream perfectly. Adventure
-          awaits — let us help you explore it your way.
-        </p>
+          <div>
+            <h3 className="text-xl font-semibold">
+              What kind of support do you offer?
+            </h3>
+            <p className="text-lg">
+              We provide around-the-clock support to ensure your travel
+              experience is seamless and enjoyable.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
