@@ -10,6 +10,8 @@ import RegisterPage from "./Pages/RegisterPage";
 import ProtectedRoute from "./Authorisation/ProtectedRoute";
 import { AuthProvider } from "./Authorisation/AuthProvider";
 import NavBar from "./components/Navbar";
+import PricingPage from "./Pages/PricingPage";
+import BlogTemplate from "./Pages/BlogPage";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/blog" element={<BlogTemplate />} />
 
+            <Route path="/pricing" element={<PricingPage />} />
             <Route
               path="/"
               element={
