@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://localhost:8000/auth/verify",
+            "https://termsheet-validation-api.onrender.com/auth/verify",
             {
               headers: { Authorization: `Bearer ${token}` },
             }

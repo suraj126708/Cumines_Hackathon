@@ -62,7 +62,7 @@ function RegisterPage() {
 
     setLoading(true);
 
-    const url = "http://localhost:8000/auth/signup";
+    const url = "https://termsheet-validation-api.onrender.com/auth/signup";
 
     axios
       .post(url, formData)
